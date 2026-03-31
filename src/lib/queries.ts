@@ -22,3 +22,20 @@ export const productBySlugQuery = groq`*[_type == "product" && slug.current == $
   image,
   description
 }`
+
+export const newsQuery = groq`*[_type == "news"] | order(date desc) {
+  _id,
+  title,
+  "slug": slug.current,
+  image,
+  content,
+  date
+}`
+
+export const eventsQuery = groq`*[_type == "event"] | order(date desc) {
+  _id,
+  title,
+  description,
+  date
+}`
+
