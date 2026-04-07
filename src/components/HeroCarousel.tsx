@@ -24,7 +24,7 @@ export default function HeroCarousel() {
   }, [])
 
   return (
-    <div className="relative px-6 pt-14 lg:px-8 w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-gray-900">
+    <div className="relative px-6 pt-14 lg:px-8 w-full min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 mt-[-6rem]">
       {/* Background Images */}
       {images.map((src, index) => (
         <div
