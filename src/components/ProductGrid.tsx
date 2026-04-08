@@ -91,15 +91,18 @@ export default function ProductGrid({ products }: { products: any[] }) {
       </div>
 
       {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-70 overflow-y-auto">
-          <div className="bg-white rounded-lg shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto mt-10">
-            <div className="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center z-10">
-              <h2 className="text-2xl font-bold text-gray-900">{selectedProduct.name}</h2>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 overflow-y-auto animate-fade-in-backdrop">
+          <div className="bg-white rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] max-w-4xl w-full max-h-[90vh] overflow-y-auto mt-10 animate-fade-in-up border border-white/20 relative">
+            <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b px-6 py-5 flex justify-between items-center z-10">
+              <h2 className="text-2xl font-bold text-gray-900 tracking-tight">{selectedProduct.name}</h2>
               <button 
                 onClick={() => setSelectedProduct(null)}
-                className="text-gray-500 hover:text-gray-800 focus:outline-none text-3xl font-bold leading-none"
+                className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-900 hover:bg-gray-200 focus:outline-none transition-colors"
+                aria-label="Close"
               >
-                &times;
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
             </div>
             
