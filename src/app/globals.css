@@ -14,6 +14,12 @@ body {
   .animate-fade-in-up {
     animation: fade-in-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
+  .animate-fade-out-backdrop {
+    animation: fade-out-backdrop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-fade-out-down {
+    animation: fade-out-down 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
 }
 
 @keyframes fade-in-backdrop {
@@ -24,4 +30,14 @@ body {
 @keyframes fade-in-up {
   0% { opacity: 0; transform: translateY(20px) scale(0.97); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fade-out-backdrop {
+  0% { opacity: 1; backdrop-filter: blur(8px); }
+  100% { opacity: 0; backdrop-filter: blur(0px); }
+}
+
+@keyframes fade-out-down {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(20px) scale(0.97); }
 }

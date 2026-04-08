@@ -7,8 +7,17 @@ import { urlFor } from '@/lib/sanity'
 
 export default function ProductGrid({ products }: { products: any[] }) {
   const [selectedProduct, setSelectedProduct] = useState<any | null>(null)
+  const [isClosing, setIsClosing] = useState(false)
   const [carouselProducts, setCarouselProducts] = useState<any[]>([])
   const [currentSlide, setCurrentSlide] = useState(0)
+
+  const handleClose = () => {
+    setIsClosing(true)
+    setTimeout(() => {
+      setSelectedProduct(null)
+      setIsClosing(false)
+    }, 300) // Match the animation duration
+  }
 
   useEffect(() => {
     // Filter products that have images and pick 5 random ones
@@ -91,12 +100,12 @@ export default function ProductGrid({ products }: { products: any[] }) {
       </div>
 
       {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 overflow-y-auto animate-fade-in-backdrop">
-          <div className="bg-white rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] max-w-4xl w-full max-h-[90vh] overflow-y-auto mt-10 animate-fade-in-up border border-white/20 relative">
+        <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 overflow-y-auto ${isClosing ? 'animate-fade-out-backdrop' : 'animate-fade-in-backdrop'}`}>
+          <div className={`bg-white rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] max-w-4xl w-full max-h-[90vh] overflow-y-auto mt-10 border border-white/20 relative ${isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up'}`}>
             <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b px-6 py-5 flex justify-between items-center z-10">
               <h2 className="text-2xl font-bold text-gray-900 tracking-tight">{selectedProduct.name}</h2>
               <button 
-                onClick={() => setSelectedProduct(null)}
+                onClick={handleClose}
                 className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-900 hover:bg-gray-200 focus:outline-none transition-colors"
                 aria-label="Close"
               >
