@@ -1,7 +1,7 @@
 import { client } from '@/lib/sanity'
 import { eventsQuery } from '@/lib/queries'
 
-export const revalidate = 60
+export const revalidate = 0 // Disable cache to show updates instantly
 
 export default async function EventsPage() {
   const events = await client.fetch(eventsQuery)

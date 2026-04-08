@@ -3,7 +3,7 @@ import { productsQuery } from '@/lib/queries'
 import ProductGrid from '@/components/ProductGrid'
 
 // App Router fetching
-export const revalidate = 60 // Revalidate cache every minute
+export const revalidate = 0 // Revalidate on every request (No cache)
 
 export default async function ProductsPage() {
   const products = await client.fetch(productsQuery)

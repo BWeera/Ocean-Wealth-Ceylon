@@ -9,7 +9,7 @@ interface Params {
   }
 }
 
-export const revalidate = 60
+export const revalidate = 0
 
 export default async function ProductDetails({ params: { slug } }: Params) {
   const product = await client.fetch(productBySlugQuery, { slug })

@@ -3,7 +3,7 @@ import { newsQuery } from '@/lib/queries'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const revalidate = 60
+export const revalidate = 0 // Disable cache to show updates instantly
 
 export default async function NewsPage() {
   const newsItems = await client.fetch(newsQuery)

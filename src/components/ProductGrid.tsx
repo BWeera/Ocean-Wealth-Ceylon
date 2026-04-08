@@ -1,15 +1,82 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Card from './Card'
 import { urlFor } from '@/lib/sanity'
 
 export default function ProductGrid({ products }: { products: any[] }) {
   const [selectedProduct, setSelectedProduct] = useState<any | null>(null)
+  const [carouselProducts, setCarouselProducts] = useState<any[]>([])
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    // Filter products that have images and pick 5 random ones
+    const withImages = products.filter(p => p.image)
+    const shuffled = [...withImages].sort(() => 0.5 - Math.random())
+    setCarouselProducts(shuffled.slice(0, 5))
+  }, [products])
+
+  useEffect(() => {
+    if (carouselProducts.length === 0) return
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselProducts.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [carouselProducts])
 
   return (
     <>
+      {/* 5 Random Products Carousel */}
+      {carouselProducts.length > 0 && (
+        <div className="relative w-full h-[400px] mb-16 rounded-2xl overflow-hidden shadow-2xl bg-gray-900 group">
+          {carouselProducts.map((product, idx) => (
+            <div 
+              key={`carousel-${product._id}`} 
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out cursor-pointer ${
+                idx === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+              onClick={() => setSelectedProduct(product)}
+            >
+              <Image 
+                src={urlFor(product.image).width(1200).url()} 
+                alt={product.name} 
+                layout="fill" 
+                objectFit="cover" 
+                className="group-hover:scale-105 transition-transform duration-700" 
+                priority={idx === 0}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+              
+              <div className="absolute inset-x-0 bottom-0 p-8 sm:p-12 z-20">
+                <p className="text-blue-400 font-bold mb-2 tracking-widest uppercase text-xs">{product.category}</p>
+                <h3 className="text-3xl sm:text-5xl font-bold text-white mb-3 drop-shadow-lg">{product.name}</h3>
+                <p className="text-gray-200 line-clamp-2 max-w-3xl text-sm sm:text-base drop-shadow">{product.description}</p>
+                
+                <div className="mt-6 inline-block bg-blue-600/90 backdrop-blur text-white px-5 py-2.5 rounded shadow-lg text-sm font-medium hover:bg-blue-500 transition">
+                  View Details & Varieties &rarr;
+                </div>
+              </div>
+            </div>
+          ))}
+          
+          {/* Carousel Indicators */}
+          <div className="absolute bottom-8 right-8 z-30 flex gap-2">
+            {carouselProducts.map((_, idx) => (
+              <button
+                key={`dot-${idx}`}
+                onClick={(e) => { e.stopPropagation(); setCurrentSlide(idx); }}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === currentSlide ? 'bg-blue-500 w-8' : 'bg-white/50 w-2 hover:bg-white'
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Main Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {products.map((product: any) => (
           <Card
