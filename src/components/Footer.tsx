@@ -1,6 +1,13 @@
+'use client'
+
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 export default function Footer() {
+  const pathname = usePathname()
+
+  if (pathname.startsWith('/studio')) return null;
+
   return (
     <footer className="bg-gray-800 text-white mt-auto">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">

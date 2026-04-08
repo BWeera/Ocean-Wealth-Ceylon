@@ -20,6 +20,9 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Hide Navbar completely on the Sanity Studio route
+  if (pathname.startsWith('/studio')) return null;
+
   // Navbar transparent on home page before scrolling
   const isTransparent = isHome && !scrolled
   
