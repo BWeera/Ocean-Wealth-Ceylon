@@ -115,51 +115,80 @@ export default function ProductGrid({ products }: { products: any[] }) {
               </button>
             </div>
             
-            <div className="p-6">
+            <div className="p-6 md:p-8">
               {/* Main Product Info */}
-              <div className="flex flex-col md:flex-row gap-6 mb-8">
-                <div className="w-full md:w-1/2">
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mb-12">
+                <div className="w-full lg:w-1/2">
                   {selectedProduct.image ? (
-                    <div className="relative h-64 w-full rounded-lg overflow-hidden">
+                    <div className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden shadow-lg border border-gray-100">
                       <Image 
-                        src={urlFor(selectedProduct.image).width(800).url()} 
+                        src={urlFor(selectedProduct.image).width(1000).url()} 
                         alt={selectedProduct.name} 
                         layout="fill" 
-                        objectFit="cover" 
+                        objectFit="cover"
+                        className="hover:scale-105 transition-transform duration-700 ease-in-out" 
                       />
                     </div>
                   ) : (
-                    <div className="h-64 w-full bg-blue-100 flex items-center justify-center rounded-lg">No Image</div>
+                    <div className="h-[300px] md:h-[400px] w-full bg-blue-50 flex items-center justify-center rounded-2xl shadow-inner border border-gray-100">
+                      <span className="text-gray-400 font-medium">No Image Available</span>
+                    </div>
                   )}
                 </div>
-                <div className="w-full md:w-1/2 text-left">
-                  <p className="text-blue-600 font-semibold mb-2">{selectedProduct.category}</p>
-                  <p className="text-gray-700 whitespace-pre-line">{selectedProduct.description}</p>
+                <div className="w-full lg:w-1/2 text-left flex flex-col justify-center">
+                  <div className="mb-4">
+                    <span className="inline-block bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm border border-blue-100">
+                      {selectedProduct.category}
+                    </span>
+                  </div>
+                  <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 tracking-tight">
+                    {selectedProduct.name}
+                  </h3>
+                  <div className="prose prose-blue prose-lg text-gray-600 leading-relaxed">
+                    <p className="whitespace-pre-line">{selectedProduct.description}</p>
+                  </div>
+                  
+                  <div className="mt-8">
+                    <a 
+                      href="/contact" 
+                      className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                      Inquire About This Product
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
 
               {/* Sub Products Section */}
               {selectedProduct.subproducts && selectedProduct.subproducts.length > 0 && (
-                <div className="mt-8 border-t pt-8">
-                  <h3 className="text-xl font-bold mb-6 text-gray-900">Available Varieties</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="mt-12 border-t border-gray-100 pt-10">
+                  <div className="flex items-center gap-3 mb-8">
+                    <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Available Varieties</h3>
+                    <span className="bg-gray-100 text-gray-600 text-xs font-bold px-2.5 py-1 rounded-full">{selectedProduct.subproducts.length}</span>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {selectedProduct.subproducts.map((sub: any) => (
-                      <div key={sub._id} className="bg-gray-50 rounded-lg p-4 flex gap-4 border">
-                        <div className="w-24 h-24 flex-shrink-0 relative rounded-md overflow-hidden bg-white">
+                      <div key={sub._id} className="bg-white rounded-xl p-5 flex flex-col sm:flex-row gap-5 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group">
+                        <div className="w-full sm:w-32 h-48 sm:h-32 flex-shrink-0 relative rounded-lg overflow-hidden bg-gray-50 border border-gray-100">
                           {sub.image ? (
                             <Image 
-                              src={urlFor(sub.image).width(200).url()} 
+                              src={urlFor(sub.image).width(400).url()} 
                               alt={sub.name} 
                               layout="fill" 
-                              objectFit="cover" 
+                              objectFit="cover"
+                              className="group-hover:scale-110 transition-transform duration-500" 
                             />
                           ) : (
-                            <div className="w-full h-full bg-gray-200 flex items-center justify-center text-xs text-gray-500">No Image</div>
+                            <div className="w-full h-full bg-gray-50 flex items-center justify-center text-xs text-gray-400 font-medium">No Image</div>
                           )}
                         </div>
-                        <div className="text-left flex-1">
-                          <h4 className="font-bold text-gray-900 text-lg">{sub.name}</h4>
-                          <p className="text-sm text-gray-600 mt-1 line-clamp-3">{sub.description}</p>
+                        <div className="text-left flex-1 flex flex-col justify-center">
+                          <h4 className="font-bold text-gray-900 text-lg group-hover:text-blue-600 transition-colors mb-2">{sub.name}</h4>
+                          <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">{sub.description}</p>
                         </div>
                       </div>
                     ))}
