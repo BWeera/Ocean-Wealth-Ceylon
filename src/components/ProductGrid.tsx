@@ -29,21 +29,45 @@ export default function ProductGrid({ products }: { products: any[] }) {
     }, 300) // Match the animation duration
   }
 
-  const handleInquirySubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleInquirySubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setInquiryLoading(true)
-    // Simulate sending data
-    setTimeout(() => {
-      setInquiryLoading(false)
-      setInquirySuccess(true)
+    
+    try {
       const form = e.target as HTMLFormElement
-      form.reset()
+      const formData = new FormData(form)
       
-      // Auto close after success
-      setTimeout(() => {
-        handleClose()
-      }, 3000)
-    }, 1500)
+      const payload = {
+        name: `${formData.get('first-name')} ${formData.get('last-name')}`,
+        email: formData.get('email'),
+        company: formData.get('company'),
+        message: formData.get('message'),
+        source: 'Product Inquiry Popup',
+        details: `Main Product: ${selectedProduct?.name}\nSelected Varieties: ${selectedSubProducts.length > 0 ? selectedSubProducts.join(', ') : 'None specified'}`,
+      }
+
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (res.ok) {
+        setInquirySuccess(true)
+        form.reset()
+        // Auto close after success
+        setTimeout(() => {
+          handleClose()
+        }, 3000)
+      } else {
+        alert('Failed to send inquiry. Please try again.')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('An error occurred. Please try again.')
+    } finally {
+      setInquiryLoading(false)
+    }
   }
 
   const toggleSubProduct = (subName: string) => {
@@ -302,28 +326,29 @@ export default function ProductGrid({ products }: { products: any[] }) {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">First name <span className="text-red-500">*</span></label>
-                            <input type="text" required className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
+                            <input name="first-name" type="text" required className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
                           </div>
                           <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Last name <span className="text-red-500">*</span></label>
-                            <input type="text" required className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
+                            <input name="last-name" type="text" required className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
                           </div>
                         </div>
 
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-1">Email address <span className="text-red-500">*</span></label>
-                          <input type="email" required className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
+                          <input name="email" type="email" required className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
                         </div>
 
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-1">Company/Organization <span className="text-gray-400 font-normal">(Optional)</span></label>
-                          <input type="text" className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
+                          <input name="company" type="text" className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
                         </div>
 
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-1">Message / Requirements <span className="text-red-500">*</span></label>
                           {/* Auto-injected context info into the textarea placeholder */}
                           <textarea 
+                            name="message"
                             rows={4} 
                             required 
                             className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all resize-none"

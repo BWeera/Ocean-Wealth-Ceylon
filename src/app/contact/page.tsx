@@ -6,18 +6,42 @@ export default function ContactPage() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setLoading(true)
-    // Simulate sending data (in a real app, send this to an API route)
-    setTimeout(() => {
-      setLoading(false)
-      setSuccess(true)
-      // Reset after a few seconds
-      setTimeout(() => setSuccess(false), 5000)
+    
+    try {
       const form = e.target as HTMLFormElement
-      form.reset()
-    }, 1500)
+      const formData = new FormData(form)
+      
+      const payload = {
+        name: `${formData.get('first-name')} ${formData.get('last-name')}`,
+        email: formData.get('email'),
+        company: 'N/A', // Contact form doesn't actually have company right now, unless we add it
+        message: formData.get('message'),
+        source: 'Main Contact Form',
+        details: `Subject: ${formData.get('subject')}`,
+      }
+
+      const res = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (res.ok) {
+        setSuccess(true)
+        form.reset()
+        setTimeout(() => setSuccess(false), 5000)
+      } else {
+        alert('Failed to send message. Please try again later.')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      alert('An error occurred. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (

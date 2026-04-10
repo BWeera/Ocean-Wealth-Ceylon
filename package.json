@@ -13,12 +13,14 @@
     "@sanity/image-url": "^1.0.2",
     "next": "14.2.3",
     "next-sanity": "^8.2.1",
+    "nodemailer": "^8.0.5",
     "react": "^18",
     "react-dom": "^18",
     "sanity": "^3.30.0"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.0",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.19",
