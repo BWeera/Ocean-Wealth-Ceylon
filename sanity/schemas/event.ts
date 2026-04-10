@@ -18,5 +18,13 @@ export const event = {
       title: 'Date',
       type: 'datetime',
     },
+    {
+      name: 'image',
+      title: 'Event Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
   ],
 }
