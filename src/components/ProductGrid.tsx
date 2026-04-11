@@ -157,24 +157,27 @@ export default function ProductGrid({ products }: { products: any[] }) {
       </div>
 
       {selectedProduct && (
-        <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 overflow-y-auto ${isClosing ? 'animate-fade-out-backdrop' : 'animate-fade-in-backdrop'}`}>
-          <div className={`bg-white rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] ${showInquiry ? 'max-w-6xl' : 'max-w-4xl'} w-full transition-all duration-500 ease-in-out border border-white/20 relative flex flex-col ${isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up'}`} style={{ maxHeight: '95vh' }}>
-            <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b px-6 py-5 flex justify-between items-center z-20 flex-shrink-0 rounded-t-2xl">
-              <h2 className="text-2xl font-bold text-gray-900 tracking-tight flex items-center gap-3">
+        <div className={`fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 overflow-y-auto ${isClosing ? 'animate-fade-out-backdrop' : 'animate-fade-in-backdrop'}`}>
+          <div className={`bg-white w-full sm:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] ${showInquiry ? 'max-w-6xl' : 'max-w-4xl'} transition-all duration-500 ease-in-out relative flex flex-col ${isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up'}`} style={{ maxHeight: '95vh', height: '100%' }}>
+            {/* Top Toolbar */}
+            <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b px-4 py-4 sm:px-6 sm:py-5 flex justify-between items-center z-20 flex-shrink-0 sm:rounded-t-2xl">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight flex items-center gap-2 sm:gap-3">
                 {showInquiry && (
                   <button 
                     onClick={() => setShowInquiry(false)}
-                    className="flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors bg-blue-50 px-3 py-1.5 rounded-full"
+                    className="flex items-center text-xs sm:text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors bg-blue-50 px-3 py-1.5 rounded-full"
                     title="Back to Product Details"
                   >
                     &larr; Back
                   </button>
                 )}
-                {showInquiry ? "Send Inquiry" : selectedProduct.name}
+                {showInquiry ? "Send Inquiry" : (
+                   <span className="truncate max-w-[200px] sm:max-w-full">{selectedProduct.name}</span>
+                )}
               </h2>
               <button 
                 onClick={handleClose}
-                className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-900 hover:bg-gray-200 focus:outline-none transition-colors"
+                className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-900 hover:bg-gray-200 focus:outline-none transition-colors border border-gray-200 ml-2 shadow-sm"
                 aria-label="Close"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -183,13 +186,13 @@ export default function ProductGrid({ products }: { products: any[] }) {
               </button>
             </div>
             
-            <div className="p-0 overflow-y-auto flex-grow flex flex-col relative w-full h-full">
+            <div className="p-0 overflow-x-hidden overflow-y-auto flex-grow flex flex-col relative w-full h-full custom-scrollbar">
               <div 
-                className={`relative flex w-[200vw] sm:w-[200%] transition-transform duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)] h-full ${showInquiry ? '-translate-x-1/2' : 'translate-x-0'}`}
+                className={`relative flex w-[200%] transition-transform duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)] h-full ${showInquiry ? '-translate-x-1/2' : 'translate-x-0'}`}
               >
                 
                 {/* --- Left View (Product Details) --- */}
-                <div className="w-[100vw] sm:w-[100%] max-w-4xl mx-auto px-6 py-6 md:p-8 flex-shrink-0">
+                <div className="w-[50%] max-w-4xl mx-auto px-4 py-6 md:p-8 flex-shrink-0">
                   {/* Main Product Info */}
                   <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mb-12">
                     <div className="w-full lg:w-1/2">
@@ -272,11 +275,11 @@ export default function ProductGrid({ products }: { products: any[] }) {
                 </div>
 
                 {/* --- Right View (Inquiry Form) --- */}
-                <div className="w-[100vw] sm:w-[100%] max-w-6xl mx-auto flex-shrink-0 p-6 md:p-8">
+                <div className="w-[50%] max-w-6xl mx-auto flex-shrink-0 px-4 py-6 md:p-8">
                   <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 h-full">
                     
                     {/* Inquiry Left Pane (Context) */}
-                    <div className="lg:col-span-2 bg-blue-50 rounded-2xl p-6 md:p-8 border border-blue-100 flex flex-col">
+                    <div className="lg:col-span-2 bg-blue-50 rounded-2xl p-5 md:p-8 border border-blue-100 flex flex-col">
                       <h4 className="text-xl font-bold tracking-tight text-gray-900 mb-6">Inquiring About</h4>
                       
                       {/* Show current selected main product context */}
