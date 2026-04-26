@@ -77,10 +77,7 @@ export default function ContactPage() {
                   <div className="ml-4">
                     <dt className="text-lg font-medium text-gray-900">Email</dt>
                     <dd className="mt-2 text-blue-600 hover:text-blue-500 cursor-pointer">
-                      inquiries@oceanwealthceylon.com
-                    </dd>
-                    <dd className="mt-1 text-blue-600 hover:text-blue-500 cursor-pointer">
-                      sales@oceanwealthceylon.com
+                      oceanwealthceylon@gmail.com
                     </dd>
                   </div>
                 </div>
@@ -93,8 +90,8 @@ export default function ContactPage() {
                   </div>
                   <div className="ml-4">
                     <dt className="text-lg font-medium text-gray-900">Phone</dt>
-                    <dd className="mt-2">+94 11 234 5678</dd>
-                    <dd className="mt-1">+94 77 123 4567</dd>
+                    <dd className="mt-2">+94 764727770</dd>
+                    <dd className="mt-1">+94 774335594</dd>
                   </div>
                 </div>
 
@@ -106,10 +103,10 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <dt className="text-lg font-medium text-gray-900">Head Office</dt>
+                    <dt className="text-lg font-medium text-gray-900">Address</dt>
                     <dd className="mt-2">
-                      <p>123 Ocean Drive,</p>
-                      <p>Colombo 03,</p>
+                      <p>No. 7/4, Wewala,</p>
+                      <p>Hikkaduwa,</p>
                       <p>Sri Lanka.</p>
                     </dd>
                   </div>

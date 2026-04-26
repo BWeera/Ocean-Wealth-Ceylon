@@ -305,7 +305,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
                       {/* Manual Checkbox Selection for Subproducts */}
                       {selectedProduct.subproducts && selectedProduct.subproducts.length > 0 && (
                         <div className="flex flex-col flex-grow">
-                          <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Select Specific Varieties</p>
+                          <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Select Specific Products</p>
                           <div className="space-y-3 overflow-y-auto max-h-[300px] lg:max-h-[400px] pr-2 custom-scrollbar">
                             {selectedProduct.subproducts.map((sub: any) => (
                               <label key={sub._id} className="flex items-center gap-3 p-3 bg-white border border-gray-200 rounded-lg cursor-pointer hover:border-blue-400 transition-colors shadow-sm">
