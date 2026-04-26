@@ -5,11 +5,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const images = [
-  '/home_img_courusel/24239777714_101e755639_b.jpg',
-  '/home_img_courusel/330031--01--1549601979.jpeg',
-  '/home_img_courusel/billfish-1.jpg',
-  '/home_img_courusel/Ocean%20Deli%201-512x299.jpg',
-  '/home_img_courusel/pacific-bluefin-tuna-rw04-021.jpg',
+  '/home_img_courusel/lobster.jpg',
+  '/home_img_courusel/shrimp.jpg',
+  '/home_img_courusel/mahimahi.jpg',
+  '/home_img_courusel/Crab.jpg',
+  '/home_img_courusel/blueffintuna.jpg',
   '/home_img_courusel/squid.jpg',
 ]
 
