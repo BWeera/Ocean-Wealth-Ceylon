@@ -56,6 +56,7 @@ export default function Navbar() {
                 <NavLink href="/" text="Home" current={pathname} transparent={isTransparent} />
                 <NavLink href="/about" text="About Us" current={pathname} transparent={isTransparent} />
                 <NavLink href="/products" text="Products" current={pathname} transparent={isTransparent} />
+                <NavLink href="/process-and-quality" text="Process & Quality" current={pathname} transparent={isTransparent} />
                 <NavLink href="/news" text="News" current={pathname} transparent={isTransparent} />
                 <NavLink href="/events" text="Events" current={pathname} transparent={isTransparent} />
                 <NavLink href="/contact" text="Contact Us" current={pathname} transparent={isTransparent} />
@@ -92,6 +93,7 @@ export default function Navbar() {
             <MobileNavLink href="/" text="Home" current={pathname} onClick={() => setMobileMenuOpen(false)} />
             <MobileNavLink href="/about" text="About Us" current={pathname} onClick={() => setMobileMenuOpen(false)} />
             <MobileNavLink href="/products" text="Products" current={pathname} onClick={() => setMobileMenuOpen(false)} />
+            <MobileNavLink href="/process-and-quality" text="Process & Quality" current={pathname} onClick={() => setMobileMenuOpen(false)} />
             <MobileNavLink href="/news" text="News" current={pathname} onClick={() => setMobileMenuOpen(false)} />
             <MobileNavLink href="/events" text="Events" current={pathname} onClick={() => setMobileMenuOpen(false)} />
             <MobileNavLink href="/contact" text="Contact Us" current={pathname} onClick={() => setMobileMenuOpen(false)} />
