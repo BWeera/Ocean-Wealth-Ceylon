@@ -2,9 +2,6 @@
 
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Texturina } from 'next/font/google'
-
-const texturina = Texturina({ subsets: ['latin'], weight: ['400', '600', '700', '800', '900'] })
 
 export default function Footer() {
   const pathname = usePathname()
@@ -16,12 +13,19 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-6 md:mb-0">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="relative w-8 h-8 rounded-full overflow-hidden bg-white flex items-center justify-center flex-shrink-0">
-                <span className="text-gray-800 text-xs font-black leading-none">OWC</span>
-                <Image src="/logo.png" alt="Ocean Wealth Ceylon Logo" layout="fill" objectFit="contain" />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="relative w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center flex-shrink-0">
+                <Image src="/logo.png" alt="Ocean Wealth Ceylon Logo Mark" layout="fill" objectFit="contain" />
               </div>
-              <h2 className={`text-2xl font-bold ${texturina.className}`}>Ocean Wealth Ceylon</h2>
+              <div className="relative h-8 w-48 flex items-center">
+                <Image 
+                  src="/Ocean%20wealth%20ceylon.png" 
+                  alt="Ocean Wealth Ceylon" 
+                  layout="fill" 
+                  objectFit="contain" 
+                  className="object-left brightness-0 invert" 
+                />
+              </div>
             </div>
             <p className="text-gray-400">Premium fisheries products straight from the ocean to you.</p>
           </div>

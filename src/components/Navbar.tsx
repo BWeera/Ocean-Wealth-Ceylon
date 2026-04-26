@@ -4,9 +4,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { Texturina } from 'next/font/google'
-
-const texturina = Texturina({ subsets: ['latin'], weight: ['400', '600', '700', '800', '900'] })
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -38,12 +35,19 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex justify-between items-center transition-all duration-300 ${scrolled || mobileMenuOpen ? 'h-16' : 'h-24'}`}>
             
-            <Link href="/" className="flex-shrink-0 font-bold text-xl sm:text-2xl flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity z-50">
+            <Link href="/" className="flex-shrink-0 flex items-center gap-2 sm:gap-3 cursor-pointer hover:opacity-80 transition-opacity z-50">
               <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white shadow-sm flex items-center justify-center shrink-0">
-                <span className="text-blue-900 text-[10px] sm:text-xs font-black leading-none z-10 hidden">OWC</span>
-                <Image src="/logo.png" alt="Ocean Wealth Ceylon Logo" layout="fill" objectFit="cover" /> 
+                <Image src="/logo.png" alt="Ocean Wealth Ceylon Logo Mark" layout="fill" objectFit="cover" /> 
               </div>
-              <span className={`tracking-tight text-lg sm:text-xl lg:text-2xl ${texturina.className}`}>Ocean Wealth Ceylon</span>
+              <div className="relative h-6 w-32 sm:h-8 sm:w-48 flex items-center">
+                <Image 
+                  src="/Ocean%20wealth%20ceylon.png" 
+                  alt="Ocean Wealth Ceylon" 
+                  layout="fill" 
+                  objectFit="contain" 
+                  className={`object-left transition-all duration-300 ${isTransparent ? 'brightness-0 invert' : 'brightness-0'}`} 
+                />
+              </div>
             </Link>
             
             {/* Desktop Navigation */}
