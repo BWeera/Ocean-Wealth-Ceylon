@@ -4,6 +4,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import { Texturina } from 'next/font/google'
+
+const texturina = Texturina({ subsets: ['latin'], weight: ['400', '600', '700', '800', '900'] })
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -40,7 +43,7 @@ export default function Navbar() {
                 <span className="text-blue-900 text-[10px] sm:text-xs font-black leading-none z-10 hidden">OWC</span>
                 <Image src="/logo.png" alt="Ocean Wealth Ceylon Logo" layout="fill" objectFit="cover" /> 
               </div>
-              <span className="tracking-tight text-lg sm:text-xl">Ocean Wealth</span>
+              <span className={`tracking-tight text-lg sm:text-xl lg:text-2xl ${texturina.className}`}>Ocean Wealth Ceylon</span>
             </Link>
             
             {/* Desktop Navigation */}

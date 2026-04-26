@@ -2,6 +2,9 @@
 
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { Texturina } from 'next/font/google'
+
+const texturina = Texturina({ subsets: ['latin'], weight: ['400', '600', '700', '800', '900'] })
 
 export default function Footer() {
   const pathname = usePathname()
@@ -18,7 +21,7 @@ export default function Footer() {
                 <span className="text-gray-800 text-xs font-black leading-none">OWC</span>
                 <Image src="/logo.png" alt="Ocean Wealth Ceylon Logo" layout="fill" objectFit="contain" />
               </div>
-              <h2 className="text-2xl font-bold">Ocean Wealth Ceylon</h2>
+              <h2 className={`text-2xl font-bold ${texturina.className}`}>Ocean Wealth Ceylon</h2>
             </div>
             <p className="text-gray-400">Premium fisheries products straight from the ocean to you.</p>
           </div>
