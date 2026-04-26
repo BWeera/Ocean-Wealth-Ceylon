@@ -57,7 +57,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
               <p className="text-gray-600">
-                To sustainably harvest and deliver the finest quality seafood while empowering local communities and preserving the marine ecosystem for future generations.
+                To Deliver the finest quality seafoods while empowering local communities with sustainable development and preserving the Marine ecosystem for future generations.
               </p>
             </div>
             <div className="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
@@ -69,7 +69,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
               <p className="text-gray-600">
-                To be the globally recognized symbol of trust and excellence in the fisheries industry, connecting the world through the unmatched taste of Ceylon's oceans.
+                To be the globally recognized symbol of trust and excellence with the unmatched taste in the fisheries industry of Ceylon's Oceans.
               </p>
             </div>
           </div>
