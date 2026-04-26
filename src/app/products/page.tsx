@@ -8,6 +8,34 @@ export const revalidate = 0 // Revalidate on every request (No cache)
 export default async function ProductsPage() {
   const products = await client.fetch(productsQuery)
 
+  // Custom sort based on client's priority list
+  const priorityList = [
+    'lobster',
+    'shrimps and prawns',
+    'crabs',
+    'tuna',
+    'grouper',
+    'sword fish',
+    'mahi mahi',
+    'marlin fish',
+    'seer fish'
+  ];
+
+  const sortedProducts = [...products].sort((a, b) => {
+    const nameA = (a.name || '').toLowerCase().trim();
+    const nameB = (b.name || '').toLowerCase().trim();
+
+    const getIndex = (name: string) => {
+      const idx = priorityList.findIndex(item => name.includes(item));
+      return idx !== -1 ? idx : priorityList.length; // 'Others' naturally fall at the end
+    };
+
+    const indexA = getIndex(nameA);
+    const indexB = getIndex(nameB);
+
+    return indexA - indexB;
+  });
+
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -20,7 +48,7 @@ export default async function ProductsPage() {
           </p>
         </div>
         
-        <ProductGrid products={products} />
+        <ProductGrid products={sortedProducts} />
       </div>
     </div>
   )
