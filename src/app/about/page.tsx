@@ -1,20 +1,20 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import AboutHeroCarousel from '@/components/AboutHeroCarousel'
 
 export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="relative bg-blue-900 py-24 sm:py-32 overflow-hidden">
-        <div className="absolute inset-0 pb-10">
-          {/* Subtle pattern or gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-700 opacity-90" />
+      <div className="relative py-24 sm:py-32 overflow-hidden h-[600px] flex items-center justify-center">
+        <div className="absolute inset-0 z-0">
+          <AboutHeroCarousel />
         </div>
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center z-10">
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl drop-shadow-lg">
             About Ocean Wealth Ceylon
           </h1>
-          <p className="mt-6 text-lg leading-8 text-blue-100 max-w-2xl mx-auto">
+          <p className="mt-6 text-lg leading-8 text-blue-50 max-w-2xl mx-auto drop-shadow-md font-medium">
             Discover the passion and dedication behind Sri Lanka's premium fisheries exporter. We are committed to delivering the freshest catch from the deep blue directly to your table.
           </p>
         </div>
@@ -35,18 +35,12 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
-            {/* Placeholder for an about image */}
-            <div className="absolute inset-0 bg-blue-100 flex items-center justify-center">
-              <span className="text-blue-500 font-medium">Add an image here (e.g., from public folder)</span>
-            </div>
-            {/* Uncomment and add actual image later 
             <Image 
-              src="/home_img_courusel/24239777714_101e755639_b.jpg" 
-              alt="Fishermen working" 
+              src="/aboutus.png" 
+              alt="About Ocean Wealth Ceylon" 
               layout="fill" 
               objectFit="cover" 
             />
-            */}
           </div>
         </div>
       </div>
