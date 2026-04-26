@@ -52,7 +52,7 @@ export default async function ProductsPage() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 -mt-16 relative z-10">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 -mt-16 relative">
         <ProductGrid products={sortedProducts} />
       </div>
     </div>
