@@ -158,16 +158,16 @@ export default function ProductGrid({ products }: { products: any[] }) {
 
       {selectedProduct && (
         <div 
-          className={`fixed inset-0 z-[2000] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 overflow-y-auto ${isClosing ? 'animate-fade-out-backdrop' : 'animate-fade-in-backdrop'}`}
+          className={`fixed inset-0 z-[2000] flex items-end sm:items-center justify-center p-1 sm:p-4 bg-black/60 overflow-y-auto ${isClosing ? 'animate-fade-out-backdrop' : 'animate-fade-in-backdrop'}`}
           onClick={handleClose}
         >
           <div 
-            className={`bg-blue-50/95 w-full sm:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-blue-100/80 backdrop-blur-sm ${showInquiry ? 'max-w-6xl' : 'max-w-4xl'} transition-all duration-500 ease-in-out relative flex flex-col ${isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up'}`} 
-            style={{ maxHeight: '95vh', height: '100%' }}
+            className={`bg-blue-50/95 w-full rounded-t-2xl sm:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-blue-100/80 backdrop-blur-sm ${showInquiry ? 'max-w-6xl' : 'max-w-4xl'} transition-all duration-500 ease-in-out relative flex flex-col ${isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up'}`} 
+            style={{ maxHeight: '95dvh', height: '95dvh' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Top Toolbar */}
-            <div className="sticky top-0 bg-blue-100/90 backdrop-blur-md border-b border-blue-200/70 px-4 py-4 sm:px-6 sm:py-5 flex justify-between items-center z-20 flex-shrink-0 sm:rounded-t-2xl">
+            <div className="sticky top-0 bg-blue-100/90 backdrop-blur-md border-b border-blue-200/70 px-4 py-3 sm:px-6 sm:py-5 flex justify-between items-center z-20 flex-shrink-0 rounded-t-2xl">
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight flex items-center gap-2 sm:gap-3">
                 {showInquiry && (
                   <button 
@@ -199,12 +199,12 @@ export default function ProductGrid({ products }: { products: any[] }) {
               >
                 
                 {/* --- Left View (Product Details) --- */}
-                <div className="w-[50%] max-w-4xl mx-auto px-4 py-6 md:p-8 flex-shrink-0">
+                <div className="w-[50%] max-w-4xl mx-auto px-3 py-4 sm:px-4 sm:py-6 md:p-8 flex-shrink-0">
                   {/* Main Product Info */}
                   <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mb-12">
                     <div className="w-full lg:w-1/2">
                       {selectedProduct.image ? (
-                        <div className="relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                        <div className="relative h-[220px] sm:h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden shadow-lg border border-gray-100">
                           <Image 
                             src={urlFor(selectedProduct.image).width(1000).url()} 
                             alt={selectedProduct.name} 
@@ -214,7 +214,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
                           />
                         </div>
                       ) : (
-                        <div className="h-[300px] md:h-[400px] w-full bg-blue-50 flex items-center justify-center rounded-2xl shadow-inner border border-gray-100">
+                        <div className="h-[220px] sm:h-[300px] md:h-[400px] w-full bg-blue-50 flex items-center justify-center rounded-2xl shadow-inner border border-gray-100">
                           <span className="text-gray-400 font-medium">No Image Available</span>
                         </div>
                       )}
@@ -225,7 +225,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
                           {selectedProduct.category}
                         </span>
                       </div>
-                      <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 tracking-tight">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6 tracking-tight">
                         {selectedProduct.name}
                       </h3>
                       <div className="prose prose-blue prose-lg text-gray-600 leading-relaxed">
@@ -248,9 +248,9 @@ export default function ProductGrid({ products }: { products: any[] }) {
 
                   {/* Sub Products Section */}
                   {selectedProduct.subproducts && selectedProduct.subproducts.length > 0 && (
-                    <div className="mt-12 border-t border-gray-100 pt-10">
-                      <div className="flex items-center gap-3 mb-8">
-                        <h3 className="text-2xl font-bold text-gray-900 tracking-tight">Available Varieties</h3>
+                    <div className="mt-8 sm:mt-12 border-t border-gray-100 pt-8 sm:pt-10">
+                      <div className="flex items-center gap-3 mb-6 sm:mb-8">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">Available Varieties</h3>
                         <span className="bg-gray-100 text-gray-600 text-xs font-bold px-2.5 py-1 rounded-full">{selectedProduct.subproducts.length}</span>
                       </div>
                       
@@ -282,7 +282,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
                 </div>
 
                 {/* --- Right View (Inquiry Form) --- */}
-                <div className="w-[50%] max-w-6xl mx-auto flex-shrink-0 px-4 py-6 md:p-8">
+                <div className="w-[50%] max-w-6xl mx-auto flex-shrink-0 px-3 py-4 sm:px-4 sm:py-6 md:p-8">
                   <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 h-full">
                     
                     {/* Inquiry Left Pane (Context) */}

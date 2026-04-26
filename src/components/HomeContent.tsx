@@ -81,7 +81,7 @@ export default function HomeContent({ products, newsItems }: { products: any[], 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/20 to-transparent"></div>
                   
-                  <div className="absolute inset-x-0 bottom-0 p-8 sm:p-12 z-20">
+                  <div className="absolute inset-x-0 bottom-0 p-6 pb-16 sm:p-12 z-20">
                     <p className="text-blue-400 font-bold mb-2 tracking-widest uppercase text-xs backdrop-blur-sm inline-block px-2 py-0.5 bg-blue-900/30 border border-blue-400/20 rounded shadow-sm">{product.category}</p>
                     <h3 className="text-3xl sm:text-5xl font-extrabold text-white mb-3 drop-shadow-lg tracking-tight">{product.name}</h3>
                     <p className="text-gray-200 line-clamp-2 max-w-3xl text-sm sm:text-base drop-shadow-md mb-6">{product.description}</p>
@@ -94,7 +94,7 @@ export default function HomeContent({ products, newsItems }: { products: any[], 
               ))}
               
               {/* Carousel Indicators */}
-              <div className="absolute bottom-8 right-8 z-30 flex gap-2.5 bg-black/20 backdrop-blur-md px-3 py-2 rounded-full border border-white/10">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 sm:bottom-8 sm:right-8 sm:left-auto sm:translate-x-0 z-30 flex gap-2.5 bg-black/20 backdrop-blur-md px-3 py-2 rounded-full border border-white/10">
                 {carouselProducts.map((_, idx) => (
                   <button
                     key={`dot-${idx}`}
