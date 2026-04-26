@@ -157,8 +157,15 @@ export default function ProductGrid({ products }: { products: any[] }) {
       </div>
 
       {selectedProduct && (
-        <div className={`fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 overflow-y-auto ${isClosing ? 'animate-fade-out-backdrop' : 'animate-fade-in-backdrop'}`}>
-          <div className={`bg-white w-full sm:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] ${showInquiry ? 'max-w-6xl' : 'max-w-4xl'} transition-all duration-500 ease-in-out relative flex flex-col ${isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up'}`} style={{ maxHeight: '95vh', height: '100%' }}>
+        <div 
+          className={`fixed inset-0 z-[999] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 overflow-y-auto ${isClosing ? 'animate-fade-out-backdrop' : 'animate-fade-in-backdrop'}`}
+          onClick={handleClose}
+        >
+          <div 
+            className={`bg-white w-full sm:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] ${showInquiry ? 'max-w-6xl' : 'max-w-4xl'} transition-all duration-500 ease-in-out relative flex flex-col ${isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up'}`} 
+            style={{ maxHeight: '95vh', height: '100%' }}
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Top Toolbar */}
             <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b px-4 py-4 sm:px-6 sm:py-5 flex justify-between items-center z-20 flex-shrink-0 sm:rounded-t-2xl">
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight flex items-center gap-2 sm:gap-3">
