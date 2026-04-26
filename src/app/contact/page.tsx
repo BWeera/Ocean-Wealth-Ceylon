@@ -76,8 +76,15 @@ export default function ContactPage() {
                   </div>
                   <div className="ml-4">
                     <dt className="text-lg font-medium text-gray-900">Email</dt>
-                    <dd className="mt-2 text-blue-600 hover:text-blue-500 cursor-pointer">
-                      oceanwealthceylon@gmail.com
+                    <dd className="mt-2">
+                      <a
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=oceanwealthceylon@gmail.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-500 cursor-pointer"
+                      >
+                        oceanwealthceylon@gmail.com
+                      </a>
                     </dd>
                   </div>
                 </div>
