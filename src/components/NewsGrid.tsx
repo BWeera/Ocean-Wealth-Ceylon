@@ -11,7 +11,7 @@ export default function NewsGrid({ newsItems }: { newsItems: any[] }) {
     <>
       <div className="mx-auto max-w-7xl px-6 lg:px-8 -mt-16 relative z-10">
         {newsItems.length === 0 ? (
-          <div className="bg-white rounded-3xl p-12 text-center shadow-md animate-fade-in-up">
+          <div className="bg-blue-50/90 rounded-3xl p-12 text-center shadow-md animate-fade-in-up border border-blue-100 backdrop-blur-sm">
             <div className="w-16 h-16 bg-blue-50 text-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
@@ -25,7 +25,7 @@ export default function NewsGrid({ newsItems }: { newsItems: any[] }) {
             {newsItems.map((item: any, idx: number) => (
               <div 
                 key={item._id} 
-                className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col animate-fade-in-up cursor-pointer"
+                className="group bg-blue-50/90 rounded-2xl shadow-sm border border-blue-100 overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col animate-fade-in-up cursor-pointer backdrop-blur-sm"
                 style={{ animationDelay: `${idx * 100}ms` }}
                 onClick={() => setSelectedNews(item)}
               >
@@ -80,12 +80,12 @@ export default function NewsGrid({ newsItems }: { newsItems: any[] }) {
             className="absolute inset-0 bg-gray-900/60" 
             onClick={() => setSelectedNews(null)}
           ></div>
-          <div className="bg-white w-full sm:w-[90vw] md:w-[700px] max-h-[90vh] sm:rounded-2xl shadow-2xl relative z-10 animate-fade-in-up flex flex-col overflow-hidden sm:m-4">
+          <div className="bg-blue-50/95 w-full sm:w-[90vw] md:w-[700px] max-h-[90vh] sm:rounded-2xl shadow-2xl border border-blue-100 relative z-10 animate-fade-in-up flex flex-col overflow-hidden sm:m-4 backdrop-blur-sm">
             
             <div className="absolute top-4 right-4 z-20">
               <button 
                 onClick={() => setSelectedNews(null)}
-                className="bg-white/80 backdrop-blur-md text-gray-800 hover:text-red-500 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-sm border border-gray-200 hover:scale-105"
+                className="bg-blue-50/90 backdrop-blur-md text-blue-900 hover:text-white hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all shadow-sm border border-blue-200 hover:scale-105"
               >
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
@@ -107,7 +107,7 @@ export default function NewsGrid({ newsItems }: { newsItems: any[] }) {
               
               <div className="p-6 md:p-10">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                  <span className="bg-blue-200/70 text-blue-900 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-blue-200">
                     News Update
                   </span>
                   {selectedNews.date && (
@@ -130,10 +130,10 @@ export default function NewsGrid({ newsItems }: { newsItems: any[] }) {
               </div>
             </div>
             
-            <div className="border-t border-gray-100 p-4 bg-gray-50 flex justify-end">
+            <div className="border-t border-blue-100 p-4 bg-blue-100/40 flex justify-end">
               <button 
                 onClick={() => setSelectedNews(null)}
-                className="px-6 py-2.5 bg-gray-200 text-gray-800 rounded-lg font-bold hover:bg-gray-300 transition-colors"
+                className="px-6 py-2.5 bg-blue-200 text-blue-900 rounded-lg font-bold hover:bg-blue-600 hover:text-white transition-colors"
               >
                 Close Article
               </button>

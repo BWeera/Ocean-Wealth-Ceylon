@@ -19,9 +19,9 @@ export default async function ProductDetails({ params: { slug } }: Params) {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-transparent">
       <div className="pt-6 pb-16 sm:pb-24">
-        <div className="mx-auto mt-8 max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div className="mx-auto mt-8 max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8 bg-white/95 rounded-2xl shadow-xl py-8">
           <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
             <div className="flex flex-col-reverse">
               <div className="aspect-h-3 aspect-w-4 overflow-hidden rounded-lg bg-gray-100">

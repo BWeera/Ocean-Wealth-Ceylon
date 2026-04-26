@@ -27,11 +27,11 @@ export default function Navbar() {
   
   const navClasses = isTransparent
     ? 'bg-transparent text-white'
-    : 'bg-white/90 backdrop-blur-md text-gray-900 border-b border-gray-200/50 shadow-sm'
+    : 'bg-[#062b54]/90 backdrop-blur-md text-white border-b border-blue-300/20 shadow-sm'
 
   return (
     <>
-      <nav className={`fixed w-full top-0 z-[100] transition-all duration-300 ${navClasses}`}>
+      <nav className={`fixed w-full top-0 z-40 transition-all duration-300 ${navClasses}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex justify-between items-center transition-all duration-300 ${scrolled || mobileMenuOpen ? 'h-16' : 'h-24'}`}>
             
@@ -45,7 +45,7 @@ export default function Navbar() {
                   alt="Ocean Wealth Ceylon" 
                   layout="fill" 
                   objectFit="contain" 
-                  className={`object-left transition-all duration-300 ${isTransparent ? 'brightness-0 invert' : 'brightness-0'}`} 
+                  className="object-left transition-all duration-300 brightness-0 invert" 
                 />
               </div>
             </Link>
@@ -67,7 +67,7 @@ export default function Navbar() {
             <div className="lg:hidden flex items-center z-50">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={`p-2 rounded-md transition-colors ${isTransparent ? 'text-white hover:bg-white/10' : 'text-gray-900 hover:bg-gray-100'}`}
+                className={`p-2 rounded-md transition-colors ${isTransparent ? 'text-white hover:bg-white/10' : 'text-white hover:bg-white/10'}`}
                 aria-label="Toggle menu"
               >
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,7 +85,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation Menu */}
         <div 
-          className={`lg:hidden fixed inset-x-0 top-0 bg-white/95 backdrop-blur-xl shadow-xl transition-all duration-300 ease-in-out border-b border-gray-100 min-h-screen pt-20 ${
+          className={`lg:hidden fixed inset-x-0 top-0 bg-[#062b54]/95 backdrop-blur-xl shadow-xl transition-all duration-300 ease-in-out border-b border-blue-200/20 min-h-screen pt-20 ${
             mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
           }`}
         >
@@ -114,8 +114,8 @@ function NavLink({ href, text, current, transparent }: { href: string; text: str
       href={href} 
       className={`px-1 py-2 font-medium text-sm transition-colors duration-200 relative group overflow-hidden ${
         isActive 
-          ? (transparent ? 'text-white font-bold' : 'text-blue-600 font-bold')
-          : (transparent ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-blue-600')
+          ? 'text-white font-bold'
+          : 'text-white/80 hover:text-white'
       }`}
     >
       {text}
@@ -124,7 +124,7 @@ function NavLink({ href, text, current, transparent }: { href: string; text: str
         isActive 
           ? 'scale-x-100'
           : 'scale-x-0 group-hover:scale-x-100'
-      } ${transparent ? 'bg-white' : 'bg-blue-600'}`}></span>
+      } ${transparent ? 'bg-white' : 'bg-blue-300'}`}></span>
     </Link>
   )
 }
@@ -138,8 +138,8 @@ function MobileNavLink({ href, text, current, onClick }: { href: string; text: s
       onClick={onClick}
       className={`block w-full text-center px-3 py-4 rounded-xl text-lg font-bold transition-all ${
         isActive 
-          ? 'bg-blue-50 text-blue-700 w-full shadow-sm border border-blue-100' 
-          : 'text-gray-800 hover:bg-gray-50'
+          ? 'bg-blue-400/20 text-white w-full shadow-sm border border-blue-200/30' 
+          : 'text-blue-50 hover:bg-blue-400/10'
       }`}
     >
       {text}

@@ -13,7 +13,7 @@ export default async function Home() {
   ]);
 
   return (
-    <div className="bg-transparent bg-blue-50">
+    <div className="bg-transparent">
       <HeroCarousel />
       <HomeContent products={products} newsItems={newsItems} />
     </div>

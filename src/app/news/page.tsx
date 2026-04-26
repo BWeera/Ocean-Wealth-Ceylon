@@ -10,7 +10,7 @@ export default async function NewsPage() {
   const newsItems = await client.fetch(newsQuery)
 
   return (
-    <div className="bg-gray-50 min-h-screen pb-24">
+    <div className="bg-transparent min-h-screen pb-24">
       {/* Hero Section */}
       <div className="relative bg-blue-900 py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/ocean-bg.jpg')] bg-cover bg-center opacity-20"></div>

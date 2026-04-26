@@ -42,7 +42,7 @@ export default function HomeContent({ products, newsItems }: { products: any[], 
   };
 
   return (
-    <div className="bg-gray-50 flex flex-col items-center pb-24 overflow-hidden">
+    <div className="bg-transparent flex flex-col items-center pb-24 overflow-hidden">
       <div className="w-full max-w-7xl px-6 lg:px-8 mt-16 sm:mt-24 space-y-24 sm:space-y-32">
         
         {/* --- SECTION 1: Random 5 Products Carousel --- */}
@@ -52,12 +52,12 @@ export default function HomeContent({ products, newsItems }: { products: any[], 
           viewport={{ once: true, margin: '-100px' }}
           variants={fadeInUp}
         >
-          <div className="mb-8 text-center sm:text-left flex flex-col sm:flex-row shadow-sm sm:shadow-none bg-white sm:bg-transparent rounded-2xl p-6 sm:p-0 items-center justify-between border sm:border-none border-gray-100">
+          <div className="mb-8 text-center sm:text-left flex flex-col sm:flex-row shadow-sm bg-blue-950/25 rounded-2xl p-6 items-center justify-between border border-blue-200/30 backdrop-blur-sm">
             <div>
-              <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">Featured Catch</h2>
-              <p className="mt-2 text-lg text-gray-600">Discover some of our premium quality seafood available for immediate export.</p>
+              <h2 className="text-3xl font-extrabold text-white tracking-tight sm:text-4xl drop-shadow-sm">Featured Catch</h2>
+              <p className="mt-2 text-lg text-blue-100">Discover some of our premium quality seafood available for immediate export.</p>
             </div>
-            <Link href="/products" className="mt-4 sm:mt-0 inline-flex items-center text-blue-600 font-bold hover:text-blue-700 transition">
+            <Link href="/products" className="mt-4 sm:mt-0 inline-flex items-center text-blue-100 font-bold hover:text-white transition">
               View all products <span aria-hidden="true" className="ml-1">&rarr;</span>
             </Link>
           </div>
@@ -119,23 +119,23 @@ export default function HomeContent({ products, newsItems }: { products: any[], 
         >
           <div className="mb-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between">
             <div>
-              <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">Latest Updates</h2>
-              <p className="mt-2 text-lg text-gray-600">Company announcements and industry insights.</p>
+              <h2 className="text-3xl font-extrabold text-white tracking-tight sm:text-4xl drop-shadow-sm">Latest Updates</h2>
+              <p className="mt-2 text-lg text-blue-100">Company announcements and industry insights.</p>
             </div>
-            <Link href="/news" className="mt-4 sm:mt-0 inline-flex items-center text-blue-600 font-bold hover:text-blue-700 transition">
+            <Link href="/news" className="mt-4 sm:mt-0 inline-flex items-center text-blue-100 font-bold hover:text-white transition">
               Read all news <span aria-hidden="true" className="ml-1">&rarr;</span>
             </Link>
           </div>
 
           {recentNews.length === 0 ? (
-            <div className="text-center text-gray-500 py-10 bg-white rounded-2xl border border-gray-100">No news articles published yet.</div>
+            <div className="text-center text-gray-500 py-10 bg-blue-50/90 rounded-2xl border border-blue-100 backdrop-blur-sm">No news articles published yet.</div>
           ) : (
             <motion.div variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {recentNews.map((item, idx) => (
                 <motion.div 
                   key={item._id} 
                   variants={fadeInUp}
-                  className={`group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col ${idx === 0 ? 'md:col-span-2 lg:col-span-2 md:flex-row' : ''}`}
+                  className={`group bg-blue-50/90 rounded-2xl shadow-sm border border-blue-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col backdrop-blur-sm ${idx === 0 ? 'md:col-span-2 lg:col-span-2 md:flex-row' : ''}`}
                 >
                   <div className={`relative w-full bg-gray-100 overflow-hidden shrink-0 ${idx === 0 ? 'h-60 md:h-full md:w-1/2' : 'h-52'}`}>
                     {item.image ? (
@@ -152,7 +152,7 @@ export default function HomeContent({ products, newsItems }: { products: any[], 
                       </div>
                     )}
                   </div>
-                  <div className="p-6 sm:p-8 flex flex-col flex-grow relative justify-center bg-white z-10 w-full">
+                  <div className="p-6 sm:p-8 flex flex-col flex-grow relative justify-center bg-blue-50/85 z-10 w-full">
                     {item.date && (
                       <p className="text-xs uppercase tracking-widest text-blue-600 font-bold mb-3">
                         {new Date(item.date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
@@ -185,7 +185,7 @@ export default function HomeContent({ products, newsItems }: { products: any[], 
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
           variants={fadeInUp}
-          className="relative bg-white rounded-[2rem] overflow-hidden shadow-lg border border-gray-100"
+          className="relative bg-blue-50/90 rounded-[2rem] overflow-hidden shadow-lg border border-blue-100 backdrop-blur-sm"
         >
           <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-60"></div>
           <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-green-50 rounded-full blur-3xl opacity-60"></div>
@@ -229,7 +229,7 @@ export default function HomeContent({ products, newsItems }: { products: any[], 
                 <motion.div 
                   key={i} 
                   variants={fadeInUp}
-                  className="bg-gray-50/50 p-6 rounded-xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition duration-300"
+                  className="bg-blue-100/40 p-6 rounded-xl border border-blue-100 hover:border-blue-200 hover:bg-blue-100/60 transition duration-300"
                 >
                   <svg className="w-8 h-8 text-blue-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={cert.icon} />

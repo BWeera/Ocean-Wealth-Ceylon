@@ -12,7 +12,7 @@ interface CardProps {
 
 export default function Card({ title, description, imageUrl, href, onClick, category }: CardProps) {
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-2xl transition-all duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:-translate-y-1">
+    <div className="bg-blue-50/90 rounded-2xl shadow-sm border border-blue-100/80 overflow-hidden group hover:shadow-2xl transition-all duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:-translate-y-1 backdrop-blur-sm">
       <div className="relative h-56 w-full overflow-hidden">
         {imageUrl ? (
           <Image 
@@ -37,7 +37,7 @@ export default function Card({ title, description, imageUrl, href, onClick, cate
         {onClick ? (
           <button 
             onClick={onClick}
-            className="inline-flex items-center justify-center space-x-2 w-full bg-gray-50 text-blue-700 border border-blue-100 px-4 py-2.5 rounded-lg font-medium hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 cursor-pointer group/btn"
+            className="inline-flex items-center justify-center space-x-2 w-full bg-blue-100/80 text-blue-800 border border-blue-200 px-4 py-2.5 rounded-lg font-medium hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 cursor-pointer group/btn"
           >
             <span>View Details</span>
             <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -47,7 +47,7 @@ export default function Card({ title, description, imageUrl, href, onClick, cate
         ) : href ? (
           <Link 
             href={href}
-            className="inline-flex items-center justify-center space-x-2 w-full bg-gray-50 text-blue-700 border border-blue-100 px-4 py-2.5 rounded-lg font-medium hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 group/btn"
+            className="inline-flex items-center justify-center space-x-2 w-full bg-blue-100/80 text-blue-800 border border-blue-200 px-4 py-2.5 rounded-lg font-medium hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 group/btn"
           >
             <span>View Details</span>
             <svg className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">

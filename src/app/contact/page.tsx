@@ -45,7 +45,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-transparent min-h-screen">
       {/* Header Section */}
       <div className="bg-blue-900 py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
@@ -59,7 +59,7 @@ export default function ContactPage() {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 -mt-16 sm:-mt-24 relative z-10 pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 bg-blue-50/90 rounded-2xl shadow-xl overflow-hidden border border-blue-100 backdrop-blur-sm">
           
           {/* Contact Information */}
           <div className="bg-blue-50 p-10 sm:p-16 flex flex-col justify-between h-full">
@@ -151,7 +151,7 @@ export default function ContactPage() {
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-900">Inquiry Type / Subject</label>
                 <div className="mt-2">
-                  <select name="subject" id="subject" className="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all bg-white" required>
+                  <select name="subject" id="subject" className="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all bg-blue-50" required>
                     <option value="" disabled>Select an option</option>
                     <option value="wholesale">Wholesale Inquiry</option>
                     <option value="export">Export Inquiry</option>

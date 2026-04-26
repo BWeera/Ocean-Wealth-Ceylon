@@ -8,18 +8,24 @@ export const metadata = {
 
 export default function ProcessAndQualityPage() {
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+    <div className="bg-transparent min-h-screen pb-24">
+      <div className="relative bg-blue-900 py-24 sm:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/ocean-bg.jpg')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/80 to-transparent"></div>
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center animate-fade-in-up">
+          <span className="inline-block bg-blue-500/20 text-blue-100 border border-blue-400/30 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">Standards</span>
+          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl drop-shadow-sm">
             Process and Quality
           </h1>
-          <p className="mt-4 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-xl leading-8 text-blue-100 max-w-2xl mx-auto font-light">
             Our commitment to sustainable fishing, hygienic processing, and uncompromising quality standards.
           </p>
         </div>
+      </div>
 
-        <div className="mx-auto max-w-4xl mb-16 rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 -mt-16 relative z-10">
+
+        <div className="mx-auto max-w-4xl mb-16 rounded-3xl overflow-hidden shadow-2xl border border-blue-100/70">
           <div className="relative h-64 sm:h-96 w-full">
             <Image 
               src="/process.jpg" 
@@ -34,7 +40,7 @@ export default function ProcessAndQualityPage() {
 
         <div className="mx-auto max-w-4xl space-y-16">
           {/* Fish Process Section */}
-          <section className="bg-gray-50 p-8 sm:p-12 rounded-3xl shadow-sm border border-gray-100">
+          <section className="bg-blue-50/90 p-8 sm:p-12 rounded-3xl shadow-sm border border-blue-100 backdrop-blur-sm">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-6 flex items-center gap-3">
               <span className="bg-blue-100 text-blue-600 p-2 rounded-lg">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -43,7 +49,7 @@ export default function ProcessAndQualityPage() {
               </span>
               Fish Process
             </h2>
-            <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+            <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
                 Fish are purchased from Company registered agents or sometimes company owned boats using the most sustainable method and the best techniques possible such as short long lining to target the fish we want to catch which also ensure that unwanted bycatch (like Dolphins) is largely avoided.
               </p>
@@ -57,7 +63,7 @@ export default function ProcessAndQualityPage() {
           </section>
 
           {/* Quality Control Section */}
-          <section className="bg-white p-8 sm:p-12 rounded-3xl shadow-lg border border-gray-100 relative overflow-hidden">
+          <section className="bg-blue-50/90 p-8 sm:p-12 rounded-3xl shadow-lg border border-blue-100 relative overflow-hidden backdrop-blur-sm">
             <div className="absolute top-0 left-0 w-2 h-full bg-blue-600"></div>
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-6 flex items-center gap-3">
               <span className="bg-blue-50 text-blue-600 p-2 rounded-lg">
@@ -67,7 +73,7 @@ export default function ProcessAndQualityPage() {
               </span>
               Quality Control
             </h2>
-            <div className="text-lg text-gray-600 leading-relaxed">
+            <div className="text-lg text-gray-700 leading-relaxed">
               <p>
                 Our export products are packed in EU approved factories adhering supermarket standards. All the products are prepared according to the HACCP manual and steps, in the ISO 22000 certified fish processing factory.
               </p>

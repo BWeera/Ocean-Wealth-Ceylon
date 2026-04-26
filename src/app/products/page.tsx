@@ -37,17 +37,22 @@ export default async function ProductsPage() {
   });
 
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+    <div className="bg-transparent min-h-screen pb-24">
+      <div className="relative bg-blue-900 py-24 sm:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/ocean-bg.jpg')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-blue-900 via-blue-900/80 to-transparent"></div>
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center animate-fade-in-up">
+          <span className="inline-block bg-blue-500/20 text-blue-100 border border-blue-400/30 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">Fresh Selection</span>
+          <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl drop-shadow-sm">
             Our Premium Products
           </h2>
-          <p className="mt-2 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-xl leading-8 text-blue-100 max-w-2xl mx-auto font-light">
             Browse through our wide variety of carefully harvested and processed fish and seafood.
           </p>
         </div>
-        
+      </div>
+
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 -mt-16 relative z-10">
         <ProductGrid products={sortedProducts} />
       </div>
     </div>

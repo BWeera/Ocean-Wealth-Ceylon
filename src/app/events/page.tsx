@@ -8,7 +8,7 @@ export default async function EventsPage() {
   const events = await client.fetch(eventsQuery)
 
   return (
-    <div className="bg-gray-50 min-h-screen pb-24">
+    <div className="bg-transparent min-h-screen pb-24">
       {/* Hero Section */}
       <div className="relative bg-blue-900 py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/ocean-bg.jpg')] bg-cover bg-center opacity-20"></div>
@@ -32,7 +32,7 @@ export default async function EventsPage() {
             return (
               <div 
                 key={event._id} 
-                className="group bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col sm:flex-row gap-6 sm:gap-10 items-start animate-fade-in-up"
+                className="group bg-blue-50/90 rounded-2xl shadow-sm border border-blue-100 p-6 sm:p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col sm:flex-row gap-6 sm:gap-10 items-start animate-fade-in-up backdrop-blur-sm"
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
                 {/* Date Box (Only shown if event date exists) */}
@@ -64,7 +64,7 @@ export default async function EventsPage() {
                       <p className="text-gray-600 text-lg leading-relaxed whitespace-pre-line group-hover:text-gray-800 transition-colors">{event.description}</p>
                     </div>
                     {event.image && (
-                      <div className="w-full lg:w-1/3 xl:w-[250px] shrink-0 h-[200px] lg:h-auto min-h-[150px] relative rounded-xl overflow-hidden shadow-sm border border-gray-100 mt-4 lg:mt-0">
+                      <div className="w-full lg:w-1/3 xl:w-[250px] shrink-0 h-[200px] lg:h-auto min-h-[150px] relative rounded-xl overflow-hidden shadow-sm border border-blue-100 mt-4 lg:mt-0">
                         <Image 
                           src={urlFor(event.image).width(600).url()} 
                           alt={event.title} 
@@ -81,7 +81,7 @@ export default async function EventsPage() {
           })}
           
           {events.length === 0 && (
-            <div className="bg-white rounded-3xl p-16 text-center shadow-md animate-fade-in-up">
+            <div className="bg-blue-50/90 rounded-3xl p-16 text-center shadow-md animate-fade-in-up border border-blue-100 backdrop-blur-sm">
               <div className="w-20 h-20 bg-blue-50 text-blue-400 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />

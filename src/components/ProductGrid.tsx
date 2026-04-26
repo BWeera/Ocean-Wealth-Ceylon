@@ -158,16 +158,16 @@ export default function ProductGrid({ products }: { products: any[] }) {
 
       {selectedProduct && (
         <div 
-          className={`fixed inset-0 z-[999] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 overflow-y-auto ${isClosing ? 'animate-fade-out-backdrop' : 'animate-fade-in-backdrop'}`}
+          className={`fixed inset-0 z-[2000] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/60 overflow-y-auto ${isClosing ? 'animate-fade-out-backdrop' : 'animate-fade-in-backdrop'}`}
           onClick={handleClose}
         >
           <div 
-            className={`bg-white w-full sm:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] ${showInquiry ? 'max-w-6xl' : 'max-w-4xl'} transition-all duration-500 ease-in-out relative flex flex-col ${isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up'}`} 
+            className={`bg-blue-50/95 w-full sm:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-blue-100/80 backdrop-blur-sm ${showInquiry ? 'max-w-6xl' : 'max-w-4xl'} transition-all duration-500 ease-in-out relative flex flex-col ${isClosing ? 'animate-fade-out-down' : 'animate-fade-in-up'}`} 
             style={{ maxHeight: '95vh', height: '100%' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Top Toolbar */}
-            <div className="sticky top-0 bg-white/95 backdrop-blur-md border-b px-4 py-4 sm:px-6 sm:py-5 flex justify-between items-center z-20 flex-shrink-0 sm:rounded-t-2xl">
+            <div className="sticky top-0 bg-blue-100/90 backdrop-blur-md border-b border-blue-200/70 px-4 py-4 sm:px-6 sm:py-5 flex justify-between items-center z-20 flex-shrink-0 sm:rounded-t-2xl">
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight flex items-center gap-2 sm:gap-3">
                 {showInquiry && (
                   <button 
@@ -184,7 +184,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
               </h2>
               <button 
                 onClick={handleClose}
-                className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-gray-900 hover:bg-gray-200 focus:outline-none transition-colors border border-gray-200 ml-2 shadow-sm"
+                className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-800 hover:text-white hover:bg-blue-600 focus:outline-none transition-colors border border-blue-200 ml-2 shadow-sm"
                 aria-label="Close"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -256,8 +256,8 @@ export default function ProductGrid({ products }: { products: any[] }) {
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {selectedProduct.subproducts.map((sub: any) => (
-                          <div key={sub._id} className="bg-white rounded-xl p-5 flex flex-col sm:flex-row gap-5 border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 group">
-                            <div className="w-full sm:w-32 h-48 sm:h-32 flex-shrink-0 relative rounded-lg overflow-hidden bg-gray-50 border border-gray-100">
+                          <div key={sub._id} className="bg-blue-50/90 rounded-xl p-5 flex flex-col sm:flex-row gap-5 border border-blue-100 shadow-sm hover:shadow-md transition-all duration-300 group">
+                            <div className="w-full sm:w-32 h-48 sm:h-32 flex-shrink-0 relative rounded-lg overflow-hidden bg-blue-100/40 border border-blue-100">
                               {sub.image ? (
                                 <Image 
                                   src={urlFor(sub.image).width(400).url()} 
@@ -267,7 +267,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
                                   className="group-hover:scale-110 transition-transform duration-500" 
                                 />
                               ) : (
-                                <div className="w-full h-full bg-gray-50 flex items-center justify-center text-xs text-gray-400 font-medium">No Image</div>
+                                <div className="w-full h-full bg-blue-100/40 flex items-center justify-center text-xs text-gray-500 font-medium">No Image</div>
                               )}
                             </div>
                             <div className="text-left flex-1 flex flex-col justify-center">
@@ -290,7 +290,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
                       <h4 className="text-xl font-bold tracking-tight text-gray-900 mb-6">Inquiring About</h4>
                       
                       {/* Show current selected main product context */}
-                      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 mb-8 flex items-center gap-4">
+                      <div className="bg-blue-50/90 rounded-xl p-4 shadow-sm border border-blue-100 mb-8 flex items-center gap-4">
                         <div className="w-20 h-20 flex-shrink-0 rounded-lg relative overflow-hidden bg-gray-100">
                           {selectedProduct.image && (
                              <Image src={urlFor(selectedProduct.image).width(200).url()} alt={selectedProduct.name} layout="fill" objectFit="cover" />
@@ -308,7 +308,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
                           <p className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Select Specific Products</p>
                           <div className="space-y-3 overflow-y-auto max-h-[300px] lg:max-h-[400px] pr-2 custom-scrollbar">
                             {selectedProduct.subproducts.map((sub: any) => (
-                              <label key={sub._id} className="flex items-center gap-3 p-3 bg-white border border-gray-200 rounded-lg cursor-pointer hover:border-blue-400 transition-colors shadow-sm">
+                              <label key={sub._id} className="flex items-center gap-3 p-3 bg-blue-50/90 border border-blue-200 rounded-lg cursor-pointer hover:border-blue-400 transition-colors shadow-sm">
                                 <input 
                                   type="checkbox" 
                                   className="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-600"
@@ -331,7 +331,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
                     </div>
 
                     {/* Inquiry Right Pane (Form Inputs) */}
-                    <div className="lg:col-span-3 bg-white p-2">
+                    <div className="lg:col-span-3 bg-blue-50/70 p-2 rounded-xl border border-blue-100/70">
                        <form onSubmit={handleInquirySubmit} className="space-y-5">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div>
