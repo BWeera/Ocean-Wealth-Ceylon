@@ -47,9 +47,27 @@ export default function HeroCarousel() {
       ))}
 
       {/* Hero Content */}
-      <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 relative z-10">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl drop-shadow-md">
+      <div className="mx-auto max-w-4xl px-4 py-32 sm:py-48 lg:py-56 relative z-10">
+        <div className="text-center flex flex-col items-center">
+          
+          {/* Main Logo and Company Name Title */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-10 w-full">
+            <div className="relative w-24 h-24 sm:w-32 sm:h-32 overflow-hidden bg-white/5 rounded-full flex items-center justify-center shrink-0 shadow-2xl backdrop-blur-sm border border-white/10">
+              <Image src="/logo.png" alt="Ocean Wealth Ceylon Logo Mark" layout="fill" objectFit="cover" />
+            </div>
+            <div className="relative h-20 w-[320px] sm:h-32 sm:w-[600px] lg:w-[750px] lg:h-40">
+              <Image 
+                src="/Ocean%20Wealth%20Ceylon%20(Pvt)%20Ltd.png" 
+                alt="Ocean Wealth Ceylon (Pvt) Ltd" 
+                layout="fill" 
+                objectFit="contain" 
+                className="object-center sm:object-left brightness-0 invert drop-shadow-2xl" 
+                priority
+              />
+            </div>
+          </div>
+
+          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-5xl drop-shadow-md">
             Fresh From the Ocean to You
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-300 drop-shadow">
