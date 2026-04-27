@@ -5,12 +5,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const images = [
-  '/home_img_courusel/lobster.jpg',
-  '/home_img_courusel/shrimp.jpg',
-  '/home_img_courusel/mahimahi.jpg',
-  '/home_img_courusel/Crab.jpg',
-  '/home_img_courusel/blueffintuna.jpg',
-  '/home_img_courusel/squid.jpg',
+  '/home_img_courusel/lob1.jpg',
+  '/home_img_courusel/lob2.jpg',
+  '/home_img_courusel/lob3.jpg',
+  '/home_img_courusel/lob4.jpg',
 ]
 
 export default function HeroCarousel() {
