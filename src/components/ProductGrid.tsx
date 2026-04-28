@@ -120,7 +120,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
                 <p className="text-gray-200 line-clamp-2 max-w-3xl text-sm sm:text-base drop-shadow">{product.description}</p>
                 
                 <div className="mt-6 inline-block bg-blue-600/90 backdrop-blur text-white px-5 py-2.5 rounded shadow-lg text-sm font-medium hover:bg-blue-500 transition">
-                  View Details & Varieties &rarr;
+                  View Product Details &rarr;
                 </div>
               </div>
             </div>
