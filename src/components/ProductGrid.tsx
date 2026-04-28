@@ -76,6 +76,11 @@ export default function ProductGrid({ products }: { products: any[] }) {
     )
   }
 
+  const startInquiryForSubProduct = (subName: string) => {
+    setSelectedSubProducts([subName])
+    setShowInquiry(true)
+  }
+
   useEffect(() => {
     // Filter products that have images and pick 5 random ones
     const withImages = products.filter(p => p.image)
@@ -232,17 +237,6 @@ export default function ProductGrid({ products }: { products: any[] }) {
                         <p className="whitespace-pre-line">{selectedProduct.description}</p>
                       </div>
                       
-                      <div className="mt-8">
-                        <button 
-                          onClick={() => setShowInquiry(true)}
-                          className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-blue-500/30 w-full sm:w-auto"
-                        >
-                          Inquire About This Product
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                          </svg>
-                        </button>
-                      </div>
                     </div>
                   </div>
 
@@ -273,6 +267,16 @@ export default function ProductGrid({ products }: { products: any[] }) {
                               <div className="text-left flex-1 flex flex-col justify-center">
                               <h4 className="font-bold text-gray-900 text-lg group-hover:text-blue-600 transition-colors mb-2">{sub.name}</h4>
                               <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line">{sub.description}</p>
+                              <button
+                                type="button"
+                                onClick={() => startInquiryForSubProduct(sub.name)}
+                                className="mt-4 inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
+                              >
+                                Inquire About This Product
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                              </button>
                             </div>
                           </div>
                         ))}
