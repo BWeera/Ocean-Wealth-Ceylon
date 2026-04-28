@@ -27,7 +27,7 @@ export default function Footer() {
                 />
               </div>
             </div>
-            <p className="text-gray-400">Premium fisheries products straight from the ocean to you.</p>
+            <p className="text-gray-400">Premium aquatic products straight from the ocean to you.</p>
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>

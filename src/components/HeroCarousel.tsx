@@ -53,15 +53,27 @@ export default function HeroCarousel() {
             <div className="relative w-24 h-24 sm:w-32 sm:h-32 overflow-hidden bg-white/5 rounded-full flex items-center justify-center shrink-0 shadow-2xl backdrop-blur-sm border border-white/10">
               <Image src="/logo.png" alt="Ocean Wealth Ceylon Logo Mark" layout="fill" objectFit="cover" />
             </div>
-            <div className="relative h-20 w-[320px] sm:h-32 sm:w-[600px] lg:w-[750px] lg:h-40">
-              <Image 
-                src="/Ocean%20Wealth%20Ceylon%20(Pvt)%20Ltd.png" 
-                alt="Ocean Wealth Ceylon (Pvt) Ltd" 
-                layout="fill" 
-                objectFit="contain" 
-                className="object-center sm:object-left brightness-0 invert drop-shadow-2xl" 
-                priority
-              />
+            <div className="flex flex-col items-center relative h-auto w-[320px] sm:w-[600px] lg:w-[750px] lg:h-auto">
+              <div className="relative h-20 w-full sm:h-32">
+                <Image
+                  src="/Ocean%20Wealth%20Ceylon%20(Pvt)%20Ltd.png"
+                  alt="Ocean Wealth Ceylon (Pvt) Ltd"
+                  layout="fill"
+                  objectFit="contain"
+                  className="object-center sm:object-left brightness-0 invert drop-shadow-2xl"
+                  priority
+                />
+              </div>
+              <div className="mt-2 h-8 sm:h-10 w-auto flex items-center justify-center">
+                <Image
+                  src="/Srilanka.png"
+                  alt="Sri Lanka"
+                  width={160}
+                  height={40}
+                  className="object-contain"
+                  priority={false}
+                />
+              </div>
             </div>
           </div>
 
