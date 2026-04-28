@@ -270,9 +270,9 @@ export default function ProductGrid({ products }: { products: any[] }) {
                                 <div className="w-full h-full bg-blue-100/40 flex items-center justify-center text-xs text-gray-500 font-medium">No Image</div>
                               )}
                             </div>
-                            <div className="text-left flex-1 flex flex-col justify-center">
+                              <div className="text-left flex-1 flex flex-col justify-center">
                               <h4 className="font-bold text-gray-900 text-lg group-hover:text-blue-600 transition-colors mb-2">{sub.name}</h4>
-                              <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">{sub.description}</p>
+                              <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line">{sub.description}</p>
                             </div>
                           </div>
                         ))}
