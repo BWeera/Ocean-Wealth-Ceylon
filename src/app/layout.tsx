@@ -6,6 +6,11 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Ocean Wealth Ceylon',
   description: 'Premium Fisheries Products',
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
 }
 
 export default function RootLayout({
