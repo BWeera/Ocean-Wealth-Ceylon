@@ -69,7 +69,7 @@ export default function HeroCarousel() {
             Fresh From the Ocean to You
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-300 drop-shadow">
-            Ocean Wealth Ceylon bringing you the finest and freshest aquatic products meticulously sourced from the deep blue. Experience unparalleled quality for your culinary endeavors.
+            Ocean Wealth Ceylon bringing you the finest and freshest aquatic products meticulously sourced from the cristal clear blue ocean of Sri Lanka. Experience unmatched quality for your culinary endeavors.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
