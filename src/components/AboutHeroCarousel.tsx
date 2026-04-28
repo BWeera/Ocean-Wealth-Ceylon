@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const images = [
-  '/about_imgs/24239777714_101e755639_b.jpg',
-  '/about_imgs/lobster.jpg',
-  '/about_imgs/lobsters.jpg',
+  '/about_imgs/lob1.jpg',
+  '/about_imgs/crab1.jpeg',
+  '/about_imgs/red-snapper.jpg',
+  '/about_imgs/grouper2.jpeg',
 ];
 
 export default function AboutHeroCarousel() {
