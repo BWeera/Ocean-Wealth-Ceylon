@@ -37,14 +37,16 @@ export default function ProductGrid({ products }: { products: any[] }) {
     try {
       const form = e.target as HTMLFormElement
       const formData = new FormData(form)
+      const companyName = formData.get('company-name')
+      const directorName = formData.get('director-name')
       
       const payload = {
-        name: `${formData.get('first-name')} ${formData.get('last-name')}`,
+        name: directorName,
         email: formData.get('email'),
-        company: formData.get('company'),
+        company: companyName,
         message: formData.get('message'),
         source: 'Product Inquiry Popup',
-        details: `Main Product: ${selectedProduct?.name}\nSelected Varieties: ${selectedSubProducts.length > 0 ? selectedSubProducts.join(', ') : 'None specified'}`,
+        details: `Company Name: ${companyName}\nDirector Name: ${directorName}\nMain Product: ${selectedProduct?.name}\nSelected Varieties: ${selectedSubProducts.length > 0 ? selectedSubProducts.join(', ') : 'None specified'}`,
       }
 
       const res = await fetch('/api/send-email', {
@@ -348,12 +350,12 @@ export default function ProductGrid({ products }: { products: any[] }) {
                        <form onSubmit={handleInquirySubmit} className="space-y-5">
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">First name <span className="text-red-500">*</span></label>
-                            <input name="first-name" type="text" required className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Company name <span className="text-red-500">*</span></label>
+                            <input name="company-name" type="text" required className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Last name <span className="text-red-500">*</span></label>
-                            <input name="last-name" type="text" required className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Director name <span className="text-red-500">*</span></label>
+                            <input name="director-name" type="text" required className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
                           </div>
                         </div>
 
