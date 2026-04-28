@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Card from './Card'
 import { urlFor } from '@/lib/sanity'
@@ -16,6 +16,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
   const [inquiryLoading, setInquiryLoading] = useState(false)
   const [inquirySuccess, setInquirySuccess] = useState(false)
   const [selectedSubProducts, setSelectedSubProducts] = useState<string[]>([])
+  const modalScrollRef = useRef<HTMLDivElement | null>(null)
 
   const handleClose = () => {
     setIsClosing(true)
@@ -80,6 +81,14 @@ export default function ProductGrid({ products }: { products: any[] }) {
     setSelectedSubProducts([subName])
     setShowInquiry(true)
   }
+
+  useEffect(() => {
+    if (!selectedProduct || !showInquiry) return
+
+    requestAnimationFrame(() => {
+      modalScrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' })
+    })
+  }, [selectedProduct, showInquiry])
 
   useEffect(() => {
     // Filter products that have images and pick 5 random ones
@@ -198,7 +207,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
               </button>
             </div>
             
-            <div className="p-0 overflow-x-hidden overflow-y-auto flex-grow flex flex-col relative w-full h-full custom-scrollbar">
+            <div ref={modalScrollRef} className="p-0 overflow-x-hidden overflow-y-auto flex-grow flex flex-col relative w-full h-full custom-scrollbar">
               <div 
                 className={`relative flex w-[200%] transition-transform duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)] h-full ${showInquiry ? '-translate-x-1/2' : 'translate-x-0'}`}
               >
