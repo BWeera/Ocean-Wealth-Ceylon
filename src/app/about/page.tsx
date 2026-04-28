@@ -28,7 +28,7 @@ export default function AboutPage() {
               Our Story
             </h2>
             <p className="text-lg text-blue-100 mb-6 leading-relaxed">
-              Founded on the pristine shores of Sri Lanka, Ocean Wealth Ceylon was born from a deep respect for the ocean and a desire to share its bounties with the world. Over the years, we have grown from a small local operation into a leading exporter of premium aquatic products.
+              Founded on the pristine shores of Sri Lanka, Ocean Wealth Ceylon was born from a deep respect for the ocean and a desire to share its bounties with the world. Over the years, we have grown from a small local operation into a trusted exporter of premium aquatic products.
             </p>
             <p className="text-lg text-blue-100 leading-relaxed">
               Our journey is defined by our unwavering commitment to sustainable fishing practices, supporting local fishing communities, and ensuring that every product we deliver meets the highest standards of quality and freshness.

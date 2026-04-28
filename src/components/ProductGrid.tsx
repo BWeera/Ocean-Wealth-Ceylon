@@ -250,7 +250,7 @@ export default function ProductGrid({ products }: { products: any[] }) {
                   {selectedProduct.subproducts && selectedProduct.subproducts.length > 0 && (
                     <div className="mt-8 sm:mt-12 border-t border-gray-100 pt-8 sm:pt-10">
                       <div className="flex items-center gap-3 mb-6 sm:mb-8">
-                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">Available Varieties</h3>
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight">Available Products</h3>
                         <span className="bg-gray-100 text-gray-600 text-xs font-bold px-2.5 py-1 rounded-full">{selectedProduct.subproducts.length}</span>
                       </div>
                       
