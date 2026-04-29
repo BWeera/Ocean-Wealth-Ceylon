@@ -57,7 +57,7 @@ export default function ProcessAndQualityPage() {
                 The fish is transported in refrigerated trucks as per the company requirements and at receiving good are checked same as company goods and only acceptable goods are received. For each lot boat details are received from the suppliers. Time to time company representatives do inspection on boats (Company own suppliers and contractors) to check its hygienic conditions and operations.
               </p>
               <p>
-                Processing is done under intrinsically hygienic conditions maintaining temperature below 40°C through out the processing line.
+                Processing is done under intrinsically hygienic conditions maintaining temperature below 21°C through out the processing line.
               </p>
             </div>
           </section>
