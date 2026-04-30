@@ -35,12 +35,12 @@ export default function HeroCarousel() {
             src={src}
             alt="Ocean Wealth Ceylon Premium Quality"
             fill
-            className="object-cover"
+            className="object-cover brightness-110"
             quality={90}
             priority={index === 0}
           />
           {/* Dark Overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
       ))}
 
