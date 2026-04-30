@@ -64,7 +64,7 @@ export default function ProcessAndQualityPage() {
 
           {/* Quality Control Section */}
           <section className="bg-blue-50/90 p-8 sm:p-12 rounded-3xl shadow-lg border border-blue-100 relative overflow-hidden backdrop-blur-sm">
-            <div className="absolute top-0 left-0 w-2 h-full bg-blue-600"></div>
+            
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-6 flex items-center gap-3">
               <span className="bg-blue-50 text-blue-600 p-2 rounded-lg">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
