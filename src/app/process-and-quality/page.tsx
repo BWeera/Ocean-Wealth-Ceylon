@@ -51,13 +51,13 @@ export default function ProcessAndQualityPage() {
             </h2>
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                Fish are purchased from Company registered agents or sometimes company owned boats using the most sustainable method and the best techniques possible such as short long lining to target the fish we want to catch which also ensure that unwanted bycatch (like Dolphins) is largely avoided.
+                Fish are transported in refrigerated trucks in accordance with company requirements. Upon receipt, all goods are inspected against company standards, and only those that meet the required criteria are accepted. For each lot, boat details are obtained from suppliers. 
               </p>
               <p>
-                The fish is transported in refrigerated trucks as per the company requirements and at receiving good are checked same as company goods and only acceptable goods are received. For each lot boat details are received from the suppliers. Time to time company representatives do inspection on boats (Company own suppliers and contractors) to check its hygienic conditions and operations.
+                Company representatives also conduct periodic inspections of boats (including those of company-owned suppliers and contractors) to ensure proper hygiene conditions and operations.
               </p>
               <p>
-                Processing is done under intrinsically hygienic conditions maintaining Room temperature 15°C-17°C and product storage Cool room  -2°C -  2°C through out the processing line.
+                Processing is carried out under strictly hygienic conditions, maintaining room temperatures between 15°C–17°C and product storage temperatures in cool rooms between -2°C and 2°C throughout the processing line.
               </p>
             </div>
           </section>
