@@ -4,6 +4,7 @@ import nodemailer from 'nodemailer';
 export async function POST(request: Request) {
   try {
     const { name, email, company, message, source, details } = await request.json();
+    const recipientEmail = 'oceanwealthceylon@gmail.com';
 
     // Configure your SMTP transporter
     const transporter = nodemailer.createTransport({
@@ -18,7 +19,7 @@ export async function POST(request: Request) {
     // Format the email content
     const mailOptions = {
       from: process.env.EMAIL_USER, // Sender address
-      to: process.env.EMAIL_USER, // Send to your own email (or replace with your inbox)
+      to: recipientEmail,
       replyTo: email, // If you reply, it goes to the customer
       subject: `New Inquiry from ${name} via ${source}`,
       text: `
