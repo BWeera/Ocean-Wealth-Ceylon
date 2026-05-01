@@ -15,9 +15,9 @@ export default function ContactPage() {
       const formData = new FormData(form)
       
       const payload = {
-        name: `${formData.get('first-name')} ${formData.get('last-name')}`,
+        name: formData.get('director-name'),
         email: formData.get('email'),
-        company: 'N/A', // Contact form doesn't actually have company right now, unless we add it
+        company: formData.get('company-name'),
         message: formData.get('message'),
         source: 'Main Contact Form',
         details: `Subject: ${formData.get('subject')}`,
@@ -135,15 +135,15 @@ export default function ContactPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                 <div>
-                  <label htmlFor="first-name" className="block text-sm font-medium text-gray-900">First name</label>
+                  <label htmlFor="company-name" className="block text-sm font-medium text-gray-900">Company name</label>
                   <div className="mt-2">
-                    <input type="text" name="first-name" id="first-name" required className="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
+                    <input type="text" name="company-name" id="company-name" required className="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="last-name" className="block text-sm font-medium text-gray-900">Last name</label>
+                  <label htmlFor="director-name" className="block text-sm font-medium text-gray-900">Director name</label>
                   <div className="mt-2">
-                    <input type="text" name="last-name" id="last-name" required className="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
+                    <input type="text" name="director-name" id="director-name" required className="block w-full rounded-md border-0 py-2 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
                   </div>
                 </div>
               </div>
