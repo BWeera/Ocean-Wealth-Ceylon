@@ -364,10 +364,6 @@ export default function ProductGrid({ products }: { products: any[] }) {
                           <input name="email" type="email" required className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
                         </div>
 
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Company/Organization <span className="text-gray-400 font-normal">(Optional)</span></label>
-                          <input name="company" type="text" className="w-full rounded-lg border-0 py-2.5 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 outline-none transition-all" />
-                        </div>
 
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-1">Message / Requirements <span className="text-red-500">*</span></label>
