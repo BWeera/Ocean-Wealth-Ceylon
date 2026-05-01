@@ -36,8 +36,7 @@ export default function AboutHeroCarousel() {
             objectFit="cover"
             priority={index === 0}
           />
-          {/* Dark Overlay for better text readability */}
-          <div className="absolute inset-0 bg-blue-900/60"></div>
+          {/* Removed blue overlay to show images without tint */}
         </div>
       ))}
     </div>
